@@ -1,3 +1,7 @@
+@import url("css/modes.css");
+@import url("css/animations.css");
+@import url("css/queries.css");
+
 @font-face {
     font-family: "Pokemon Solid";
     src: url("./fonts/Pokemon\ Solid.ttf") format("truetype");
@@ -29,177 +33,13 @@ html {
     transform: scale(1.2);
 }
 
-.go-up {
-    animation: goingUp 4s ease-in 2s;
-}
-
-.go-down {
-    animation: goingDown 4s ease-in 2s;
-}
-
 .open-letter {
     animation: pokeball 5s ease-in 0.5s;
     animation-iteration-count: infinite;
 }
 
-.clicked-button {
-    visibility: hidden;
-}
-
-@keyframes pokeball {
-    0% {
-        color: #000;
-        transform: rotate(0deg);
-    }
-    25% {
-        color: rgb(255, 23, 23);
-        transform: rotate(2deg);
-    }
-
-    50% {
-        color: #000;
-        transform: rotate(0deg);
-    }
-
-    75% {
-        color: rgb(255, 23, 23);
-        transform: rotate(-2deg);
-    }
-
-    100% {
-        color: #000;
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes goingUp {
-    0% {
-        transform: translateY(0px);
-    }
-    5% {
-        transform: translateY(-50px);
-    }
-    10% {
-        transform: translateY(-100px);
-    }
-    15% {
-        transform: translateY(-150px);
-    }
-    20% {
-        transform: translateY(-200px);
-    }
-    25% {
-        transform: translateY(-250px);
-    }
-    30% {
-        transform: translateY(-300px);
-    }
-    35% {
-        transform: translateY(-350px);
-    }
-    40% {
-        transform: translateY(-400px);
-    }
-    45% {
-        transform: translateY(-450px);
-    }
-    50% {
-        transform: translateY(-500px);
-    }
-    55% {
-        transform: translateY(-550px);
-    }
-    60% {
-        transform: translateY(-600px);
-    }
-    65% {
-        transform: translateY(-650px);
-    }
-    70% {
-        transform: translateY(-700px);
-    }
-    75% {
-        transform: translateY(-750px);
-    }
-    80% {
-        transform: translateY(-800px);
-    }
-    85% {
-        transform: translateY(-850px);
-    }
-    90% {
-        transform: translateY(-900px);
-    }
-    95% {
-        transform: translateY(-950px);
-    }
-    100% {
-        transform: translateY(-1000px);
-    }
-}
-
-@keyframes goingDown {
-    0% {
-        transform: translateY(0px);
-    }
-    5% {
-        transform: translateY(50px);
-    }
-    10% {
-        transform: translateY(100px);
-    }
-    15% {
-        transform: translateY(150px);
-    }
-    20% {
-        transform: translateY(200px);
-    }
-    25% {
-        transform: translateY(250px);
-    }
-    30% {
-        transform: translateY(300px);
-    }
-    35% {
-        transform: translateY(350px);
-    }
-    40% {
-        transform: translateY(400px);
-    }
-    45% {
-        transform: translateY(450px);
-    }
-    50% {
-        transform: translateY(500px);
-    }
-    55% {
-        transform: translateY(550px);
-    }
-    60% {
-        transform: translateY(600px);
-    }
-    65% {
-        transform: translateY(650px);
-    }
-    70% {
-        transform: translateY(700px);
-    }
-    75% {
-        transform: translateY(750px);
-    }
-    80% {
-        transform: translateY(800px);
-    }
-    85% {
-        transform: translateY(850px);
-    }
-    90% {
-        transform: translateY(900px);
-    }
-    95% {
-        transform: translateY(950px);
-    }
-    100% {
-        transform: translateY(1000px);
-    }
+.poke-font {
+    font-family: "Pokemon Solid";
+    font-weight: 400;
+    font-size: 40px;
 }

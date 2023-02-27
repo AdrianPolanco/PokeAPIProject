@@ -15,12 +15,13 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <header class="header">
+        <header class="header d-none" id="startHeader">
             <div class="w-auto h-100" id="top">
                 <img
                     src="./images/pokeball-top.webp"
                     alt=""
-                    class="img-fluid w-100 h-50 go-up"
+                    class="img-fluid w-100 h-50 keep-position"
+                    id="topImage"
                 />
                 <button
                     class="position-absolute border-0 top-50 start-50 translate-middle z-1"
@@ -31,10 +32,79 @@
                 <img
                     src="./images/pokeball-bottom.webp"
                     alt=""
-                    class="img-fluid w-100 h-50 go-down"
+                    class="img-fluid w-100 h-50 keep-position"
+                    id="bottomImage"
                 />
             </div>
         </header>
+        <main id="pokedex">
+            <nav class="navbar navbar-expand-lg bg-danger">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-light poke-font" href="#"
+                        >Pokedex</a
+                    >
+                    <button
+                        class="navbar-toggler border-light"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span
+                            class="navbar-toggler-icon"
+                            id="navbarToggle"
+                        ></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <ul
+                            class="navbar-nav me-auto mb-2 mb-lg-0"
+                            id="navbar-options"
+                        >
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link active text-light"
+                                    aria-current="page"
+                                    href="#"
+                                    >Home</a
+                                >
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link text-light"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    Stats
+                                </a>
+                            </li>
+                        </ul>
+
+                        <form class="d-flex" role="search">
+                            <input
+                                class="form-control me-2"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                            />
+                            <button
+                                class="btn btn-outline-success text-light border-light"
+                                type="submit"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </main>
 
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -46,5 +116,6 @@
             integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
             crossorigin="anonymous"
         ></script>
+        <script src="app.js" type="module"></script>
     </body>
 </html>
