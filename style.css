@@ -11,6 +11,7 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 
 .header {
@@ -42,4 +43,13 @@ html {
     font-family: "Pokemon Solid";
     font-weight: 400;
     font-size: 40px;
+}
+
+#name,
+#pokedex-number {
+    font-size: 2rem;
+}
+
+.color {
+    fill: red;
 }
