@@ -15,9 +15,47 @@ html {
 
 #startButton {
     width: 29%;
-    height: 18%;
+    height: 20%;
     border-radius: 45%;
     font-family: "Pokemon Solid";
     font-weight: 700;
     font-size: 40px;
+    background-color: #fff;
+}
+
+#startButton:hover .open-letter {
+    animation: none;
+    color: rgb(255, 23, 23);
+    transform: scale(1.2);
+}
+
+@keyframes pokeball {
+    0% {
+        color: #000;
+        transform: rotate(0deg);
+    }
+    25% {
+        color: rgb(255, 23, 23);
+        transform: rotate(2deg);
+    }
+
+    50% {
+        color: #000;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        color: rgb(255, 23, 23);
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        color: #000;
+        transform: rotate(0deg);
+    }
+}
+
+.open-letter {
+    animation: pokeball 5s ease-in 0.5s;
+    animation-iteration-count: infinite;
 }
