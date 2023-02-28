@@ -106,7 +106,10 @@
                     </div>
                 </nav>
             </section>
-            <section id="main-body" class="container row gap-5">
+            <section
+                id="main-body"
+                class="container row gap-5 justify-content-center"
+            >
                 <section id="information" class="row col-8">
                     <div class="row col-6 p-5">
                         <img
@@ -227,12 +230,10 @@
                             </div>
                         </article>
                     </article>
-                    <article class="row p-5 gap-3" id="specific-info">
-                        <p class="h4 fs-2">Type</p>
-                        <div class="col-5 row text-light gap-1">
-                            <p
-                                class="col bg-info fs-3 fw-bolder rounded-3 p-1 d-inline-block"
-                            >
+                    <article class="col-6 p-5" id="specific-info">
+                        <p id="type" class="h4 fs-2">Type</p>
+                        <div class="col row text-light gap-1">
+                            <p class="col bg-info fs-3 fw-bolder rounded-3 p-1">
                                 Flying
                             </p>
                             <p
@@ -242,10 +243,8 @@
                             </p>
                         </div>
                         <p class="h4 fs-2">Weaknesses</p>
-                        <div class="col-10 row text-light gap-1">
-                            <p
-                                class="col bg-info fs-3 fw-bolder rounded-3 p-1 d-inline-block"
-                            >
+                        <div class="col row text-light gap-1">
+                            <p class="col bg-info fs-3 fw-bolder rounded-3 p-1">
                                 Flying
                             </p>
                             <p
@@ -254,67 +253,86 @@
                                 Electrical
                             </p>
                         </div>
-                        <article id="statsBar">
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    aria-valuenow="0"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    style="width: 25%"
-                                    aria-valuenow="25"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    style="width: 50%"
-                                    aria-valuenow="50"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    style="width: 75%"
-                                    aria-valuenow="75"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    style="width: 100%"
-                                    aria-valuenow="100"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                            <div class="progress">
-                                <div
-                                    class="progress-bar bg-danger"
-                                    role="progressbar"
-                                    style="width: 100%"
-                                    aria-valuenow="100"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                ></div>
-                            </div>
-                        </article>
+                    </article>
+                    <article id="statsBar" class="col-6 p-5 bg-light mt-3">
+                        <h2>Stats</h2>
+                        <p class="h6 f-5 col-2">HP</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="hpStat"
+                            ></div>
+                        </div>
+
+                        <p class="h6 f-5">Attack</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="attackStat"
+                            ></div>
+                        </div>
+
+                        <p class="h6 f-5">Special Attack</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 25%"
+                                aria-valuenow="25"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="sattackStat"
+                            ></div>
+                        </div>
+
+                        <p class="h6 f-5">Defense</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 50%"
+                                aria-valuenow="50"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="defenseStat"
+                            ></div>
+                        </div>
+
+                        <p class="h6 f-5">Special Defense</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 75%"
+                                aria-valuenow="75"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="sdefenseStat"
+                            ></div>
+                        </div>
+
+                        <p class="h6 f-5">Speed</p>
+                        <div class="progress">
+                            <div
+                                class="progress-bar bg-danger"
+                                role="progressbar"
+                                style="width: 85%"
+                                aria-valuenow="85"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                id="speedStat"
+                            ></div>
+                        </div>
                     </article>
                 </section>
                 <section id="pokedex-scroll" class="row-cols-1 col-3">
@@ -327,6 +345,14 @@
                     </header>
                     <div id="scroll-list-main" class="bg-light p-5">
                         <div id="scroll-list"></div>
+                    </div>
+                </section>
+                <section id="evolutions" class="row col-8 bg-danger">
+                    <h2 class="text-light">Evolutions</h2>
+                    <div class="container">
+                        <img src="" alt="" />
+                        <img src="" alt="" />
+                        <img src="" alt="" />
                     </div>
                 </section>
             </section>

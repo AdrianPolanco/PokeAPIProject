@@ -66,11 +66,17 @@ html {
 }
 
 #pokedex-scroll {
-    height: 500px;
     display: flex;
     flex-direction: column;
     overflow: auto;
 }
 
-#pokemon-list-container {
+#statsBar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.bg-personalized {
+    background-color: #968f8f;
 }
