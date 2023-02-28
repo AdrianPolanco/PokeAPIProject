@@ -53,3 +53,24 @@ html {
 .color {
     fill: red;
 }
+
+#scroll-list-main {
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc3545;
+}
+
+#pokedex-scroll {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#pokemon-list-container {
+}
