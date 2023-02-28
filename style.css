@@ -64,6 +64,7 @@ html {
     display: flex;
     flex-direction: column;
     overflow: auto;
+    height: 50rem;
 }
 
 #statsBar {
@@ -110,4 +111,14 @@ body {
 #title {
     font-size: 5.5rem !important;
     padding: 1rem;
+}
+
+.btn-outline-light:hover {
+    color: #dc3545 !important;
+}
+
+#version-1,
+#version-2,
+#scroll-list div {
+    cursor: pointer;
 }
