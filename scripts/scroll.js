@@ -1,3 +1,5 @@
+import { basicInfo } from "./basicInfo.js";
+
 const scrollList = document.querySelector("#scroll-list");
 const scrollUrl = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=493";
 
@@ -14,7 +16,7 @@ function crearDivs(datos = []) {
 
     datos.forEach((container) => {
         const div = document.createElement("DIV");
-        div.value = container.name;
+        div.id = container.name;
 
         //Finding the array index, which is the same than the order number of each
         //pokemon in the pokedex, so we be able to show the name and the number of the pokemon
@@ -30,7 +32,11 @@ function crearDivs(datos = []) {
             numberShown = `#0${number}`;
         }
 
-        const name = container.name.toUpperCase();
+        const nameShown = container.name.toUpperCase();
+
+        div.onclick = function (e) {
+            basicInfo(nameShown, numberShown);
+        };
 
         div.textContent = `${numberShown}  ${container.name.toUpperCase()}`;
         div.classList.add(
