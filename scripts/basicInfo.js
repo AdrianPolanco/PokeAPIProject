@@ -26,7 +26,8 @@ export function basicInfo(name, number) {
             showDetails(data);
             showStats(data.stats);
         });
-
+    /*NOTA: Para el buscar, creare una función que a través del nombre haga una fetch al link del pokemon
+ y obtenga el ID, para que pueda volver a reutilizar esta función*/
     fetch(urlSpecies)
         .then((answer) => answer.json())
         .then((data) => {
