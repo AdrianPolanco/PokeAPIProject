@@ -1,3 +1,5 @@
+import { clearHTML } from "./general.js";
+
 const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
 const mainImage = document.querySelector("#mainImage");
@@ -49,13 +51,14 @@ function successBasicInfo(name, number, description = []) {
 
 export function showDetails(obj) {
     mainImage.src = obj.sprites.other["official-artwork"]["front_default"];
-
+    clearHTML(abilitiesData);
     obj["abilities"].forEach((ability) => {
         const abilityData = document.createElement("p");
         abilityData.classList.add("fs-4", "fw-normal");
         abilityData.textContent = `${ability[
             "ability"
         ].name[0].toUpperCase()}${ability["ability"].name.slice(1)}`;
+
         abilitiesData.appendChild(abilityData);
 
         /*<p class="fs-4 fw-normal">Pressure</p>*/

@@ -2,6 +2,7 @@ const topImage = document.querySelector("#topImage");
 const bottomImage = document.querySelector("#bottomImage");
 const startHeader = document.querySelector("#startHeader");
 const startButton = document.querySelector("#startButton");
+const pokedex = document.querySelector("#pokedex");
 const imagesArray = [topImage, bottomImage];
 
 export function startApp() {
@@ -44,6 +45,7 @@ export function startApp() {
                     image.classList.remove("go-down");
                     image.classList.add("keep-down");
                 }
+                pokedex.classList.remove("d-none");
             });
         }, 3000);
 
@@ -64,13 +66,17 @@ export function endApp() {
             if (image.id === "topImage") {
                 //We add the animation to send them back to their original position
                 image.classList.add("go-up-reverse");
-
+                setTimeout(() => {
+                    pokedex.classList.add("d-none");
+                }, 4000);
+                pokedex.classList.add("opacity-50");
                 //We set a timer of 6 secs, because this is the total duration of the animation
                 setTimeout(() => {
                     //After 6 secs, we remove the keep-up/down class so the elements dont go back after the animations
                     image.classList.remove("keep-up");
                     //After 6 secs, we remove the animation so they dont repeat again and againt
                     image.classList.remove("go-up-reverse");
+                    pokedex.classList.add("opacity-25");
                 }, 6000);
 
                 //After 0.5 sec, we add the keep-position class so the elements keep their original position
@@ -90,6 +96,8 @@ export function endApp() {
                 setTimeout(() => {
                     image.classList.add("keep-position");
                     startButton.classList.remove("d-none");
+                    pokedex.classList.remove("opacity-50");
+                    pokedex.classList.remove("opacity-25");
                 }, 6500);
             }
         });
