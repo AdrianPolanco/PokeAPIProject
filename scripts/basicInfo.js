@@ -1,5 +1,6 @@
 import { clearHTML } from "./general.js";
 import { showStats } from "./detailedInfo.js";
+import { showTypes, getWeaknesses } from "./types.js";
 
 const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
@@ -65,6 +66,11 @@ function successBasicInfo(name, number, description = [], obj) {
 
 export function showDetails(obj) {
     const { height, weight } = obj;
+    const types = document.querySelector("#types");
+
+    const newArrayTypes = obj["types"].map((typeIndex) => typeIndex.type.name);
+    showTypes(newArrayTypes, types);
+    getWeaknesses(newArrayTypes);
 
     const heightShown = (height / 10 / 0.3048).toFixed(2);
     const weightShown = (weight / 10 / 0.4535).toFixed(2);

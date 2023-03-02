@@ -77,16 +77,13 @@
                                     >
                                 </li>
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item">
                                     <a
-                                        class="nav-link text-light"
-                                        href="#"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
+                                        class="nav-link active text-light"
+                                        aria-current="page"
+                                        href="#statsBar"
+                                        >Stats</a
                                     >
-                                        Stats
-                                    </a>
                                 </li>
                                   <li class="nav-item">
                                     <a
@@ -239,24 +236,24 @@
                         </article>
                     </article>
                     <article class="col-6 p-5" id="specific-info">
-                        <p id="type" class="h4 fs-2">Type</p>
-                        <div class="col row text-light gap-1">
-                            <p class="col bg-info fs-3 fw-bolder rounded-3 p-1">
+                        <p  class="h4 fs-2">Type</p>
+                        <div class="col row text-light gap-1" id="types">
+                            <p class="col-auto bg-info fs-3 fw-bolder rounded-3 p-1">
                                 Flying
                             </p>
                             <p
-                                class="col bg-warning fs-3 fw-bolder rounded-3 p-1"
+                                class="col-auto bg-warning fs-3 fw-bolder rounded-3 p-1"
                             >
                                 Electrical
                             </p>
                         </div>
                         <p class="h4 fs-2">Weaknesses</p>
-                        <div class="col row text-light gap-1">
-                            <p class="col bg-info fs-3 fw-bolder rounded-3 p-1">
+                        <div class="col row text-light gap-1" id="weaknesses">
+                            <p class="col bg-info col-auto fs-3 fw-bolder rounded-3 p-1">
                                 Flying
                             </p>
                             <p
-                                class="col bg-warning fs-3 fw-bolder rounded-3 p-1"
+                                class="col bg-warning col-auto fs-3 fw-bolder rounded-3 p-1"
                             >
                                 Electrical
                             </p>
@@ -466,6 +463,7 @@
                 project.
             </p>
         </footer></main>
+        <div id="prueba"></div>
         
 
         <script
