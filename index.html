@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <header class="header d-none" id="startHeader">
+        <header class="header" id="startHeader">
             <div class="w-auto h-100" id="top">
                 <img
                     src="./images/pokeball-top.webp"
@@ -24,7 +24,7 @@
                     id="topImage"
                 />
                 <button
-                    class="position-absolute border-0 top-50 start-50 translate-middle z-1"
+                    class="position-absolute border-0 start-50 translate-middle z-1"
                     id="startButton"
                 >
                     <p class="open-letter">Open</p>
@@ -37,7 +37,7 @@
                 />
             </div>
         </header>
-        <main id="pokedex" class="row gap-3">
+        <main id="pokedex" class="row gap-3 d-none position-absolute top-0 z-5 d-none">
             <section id="nav-header">
                 <nav class="navbar navbar-expand-lg bg-danger">
                     <div class="container-fluid">
@@ -65,7 +65,7 @@
                             id="navbarSupportedContent"
                         >
                             <ul
-                                class="navbar-nav me-auto mb-2 mb-lg-0 fs-3"
+                                class="navbar-nav me-auto mb-2 p-5 mb-lg-0 fs-3 d-flex gap-2"
                                 id="navbar-options"
                             >
                                 <li class="nav-item">
@@ -88,6 +88,16 @@
                                         Stats
                                     </a>
                                 </li>
+                                  <li class="nav-item">
+                                    <a
+                                        class="nav-link active text-light"
+                                        aria-current="page"
+                                        href="#"
+                                        id="exit"
+                                        >Exit</a
+                                    >
+                                </li>
+                                
                             </ul>
 
                             <form class="d-flex fs-3" role="search">
@@ -219,9 +229,10 @@
                                     </p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="fs-3 fw-bolder" id="abilities">
+                                    <p class="fs-3 fw-bolder">
                                         Abilities
                                     </p>
+                                    <div" id="abilities"></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -417,8 +428,7 @@
                     </div>
                 </section>
             </section>
-            uvg
-        </main>
+      
         <footer class="bg-danger text-light mt-5 fs-2">
             <p class="text-uppercase">DISCLAIMER:</p>
             <p>
@@ -443,7 +453,8 @@
                 professor and/or a possible recruiter. Thanks for look at my
                 project.
             </p>
-        </footer>
+        </footer></main>
+        
 
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
