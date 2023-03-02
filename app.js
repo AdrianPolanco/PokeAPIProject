@@ -17,6 +17,8 @@ https://pokeapi.co/api/v2/type/
 
 const startButton = document.querySelector("#startButton");
 const versionsDiv = document.querySelector("#versions-div");
+const versionSword = document.querySelector("#version-1");
+const versionShield = document.querySelector("#version-2");
 const exit = document.querySelector("#exit");
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -27,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 //Changes the descriptions depending on the pokeball icon you clicked
-versionsDiv.addEventListener("click", (e) => {
-    if (e.target.id === "version-1") {
-        descriptionText.textContent = versionsObj.sword;
-    } else if (e.target.id === "version-2") {
-        descriptionText.textContent = versionsObj.shield;
-    }
+versionSword.addEventListener("click", (e) => {
+    descriptionText.textContent = versionsObj.sword;
+});
+
+versionShield.addEventListener("click", (e) => {
+    descriptionText.textContent = versionsObj.shield;
 });
 
 exit.addEventListener("click", function (e) {
