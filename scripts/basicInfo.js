@@ -1,4 +1,5 @@
 import { clearHTML } from "./general.js";
+import { showStats } from "./detailedInfo.js";
 
 const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
@@ -20,13 +21,16 @@ export function basicInfo(name, number) {
 
     fetch(urlDetails)
         .then((response) => response.json())
-        .then((data) => showDetails(data));
+        .then((data) => {
+            showDetails(data);
+            showStats(data.stats);
+        });
 
     fetch(urlSpecies)
         .then((answer) => answer.json())
-        .then((data) =>
-            successBasicInfo(name, number, data["flavor_text_entries"], data)
-        );
+        .then((data) => {
+            successBasicInfo(name, number, data["flavor_text_entries"], data);
+        });
 }
 
 function successBasicInfo(name, number, description = [], obj) {
@@ -38,18 +42,19 @@ function successBasicInfo(name, number, description = [], obj) {
     });
 
     const identifiedInfoShield = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "shield";
+        return info.language.name === "en" && info.version.name === "pearl";
     });
     const identifiedInfoSword = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "sword";
+        return info.language.name === "en" && info.version.name === "diamond";
     });
     const categoryShown = obj["genera"][identifiedType].genus.slice(0, -8);
     categoryData.textContent = categoryShown;
-    descriptionText.textContent = description[identifiedInfoSword].flavor_text;
+    descriptionText.textContent =
+        description[identifiedInfoSword]["flavor_text"];
     //categoryData.textContent =
 
-    versionsObj.sword = description[identifiedInfoSword].flavor_text;
-    versionsObj.shield = description[identifiedInfoShield].flavor_text;
+    versionsObj.sword = description[identifiedInfoSword]["flavor_text"];
+    versionsObj.shield = description[identifiedInfoShield]["flavor_text"];
 }
 
 /*  foto.src = obj.sprites.other["official-artwork"].front_default
