@@ -4,6 +4,9 @@ const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
 const mainImage = document.querySelector("#mainImage");
 const abilitiesData = document.querySelector("#abilities");
+const heightData = document.querySelector("#heightData");
+const weightData = document.querySelector("#weightData");
+const categoryData = document.querySelector("#categoryData");
 export const descriptionText = document.querySelector("#description-text");
 
 export let versionsObj = {
@@ -22,13 +25,17 @@ export function basicInfo(name, number) {
     fetch(urlSpecies)
         .then((answer) => answer.json())
         .then((data) =>
-            successBasicInfo(name, number, data["flavor_text_entries"])
+            successBasicInfo(name, number, data["flavor_text_entries"], data)
         );
 }
 
-function successBasicInfo(name, number, description = []) {
+function successBasicInfo(name, number, description = [], obj) {
     nameInfo.textContent = name;
     numberInfo.textContent = number;
+
+    const identifiedType = obj["genera"].findIndex((info) => {
+        return info.language.name === "en";
+    });
 
     const identifiedInfoShield = description.findIndex((info) => {
         return info.language.name === "en" && info.version.name === "shield";
@@ -36,8 +43,10 @@ function successBasicInfo(name, number, description = []) {
     const identifiedInfoSword = description.findIndex((info) => {
         return info.language.name === "en" && info.version.name === "sword";
     });
-
+    const categoryShown = obj["genera"][identifiedType].genus.slice(0, -8);
+    categoryData.textContent = categoryShown;
     descriptionText.textContent = description[identifiedInfoSword].flavor_text;
+    //categoryData.textContent =
 
     versionsObj.sword = description[identifiedInfoSword].flavor_text;
     versionsObj.shield = description[identifiedInfoShield].flavor_text;
@@ -50,7 +59,14 @@ function successBasicInfo(name, number, description = []) {
   https://pokeapi.co/api/v2/pokemon/squirtle*/
 
 export function showDetails(obj) {
+    const { height, weight } = obj;
+
+    const heightShown = (height / 10 / 0.3048).toFixed(2);
+    const weightShown = (weight / 10 / 0.4535).toFixed(2);
+
     mainImage.src = obj.sprites.other["official-artwork"]["front_default"];
+    heightData.textContent = `${heightShown}'`;
+    weightData.textContent = `${weightShown} lbs`;
     clearHTML(abilitiesData);
     obj["abilities"].forEach((ability) => {
         const abilityData = document.createElement("p");
@@ -61,10 +77,31 @@ export function showDetails(obj) {
 
         abilitiesData.appendChild(abilityData);
 
-        /*<p class="fs-4 fw-normal">Pressure</p>*/
+        /*
+        Datos que da la API:
+        WeightAPI: 950 KILOS
+        HeightAPI: 19 METROS
 
-        /*let string = "Hola";
-        console.log(`${string[0]}${string.slice(1)}`);*/
+        Formula de los datos que realmente mostraremos:
+
+        Weight parcial = WeightAPI KILOS / 10
+        Weight final = Weight parcial KILOS / 0.4535 libras
+
+        const API = 950;
+        const corrected = API / 10;
+        const final = (corrected / 0.4535).toFixed(2);
+        console.log(final);
+
+        Height parcial = HeightAPI METROS/ 10 
+        Height final = Height parcial METROS / 0.3048 PIES
+
+         const API = 19;
+        const corrected = API / 10;
+        const final = (corrected / 0.3048).toFixed(2);
+        console.log(final + "'");
+
+        
+        */
     });
     //abilitiesData.textContent =
 }
