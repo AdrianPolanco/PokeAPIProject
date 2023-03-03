@@ -9,6 +9,10 @@ const abilitiesData = document.querySelector("#abilities");
 const heightData = document.querySelector("#heightData");
 const weightData = document.querySelector("#weightData");
 const categoryData = document.querySelector("#categoryData");
+const unknown = document.querySelector("#unknown");
+const maleIcon = document.querySelector("#male-icon");
+const femaleIcon = document.querySelector("#female-icon");
+const genderArray = [maleIcon, femaleIcon, unknown];
 export const descriptionText = document.querySelector("#description-text");
 
 export let versionsObj = {
@@ -36,6 +40,7 @@ export function basicInfo(name, number) {
 }
 
 function successBasicInfo(name, number, description = [], obj) {
+    genderArray.forEach((item) => item.classList.add("d-none"));
     nameInfo.textContent = name;
     numberInfo.textContent = number;
 
@@ -53,7 +58,16 @@ function successBasicInfo(name, number, description = [], obj) {
     categoryData.textContent = categoryShown;
     descriptionText.textContent =
         description[identifiedInfoSword]["flavor_text"];
-    //categoryData.textContent =
+    if (obj["gender_rate"] === -1) {
+        unknown.classList.remove("d-none");
+    } else if (obj["gender_rate"] === 0) {
+        maleIcon.classList.remove("d-none");
+    } else if (obj["gender_rate"] === 8) {
+        femaleIcon.classList.remove("d-none");
+    } else {
+        femaleIcon.classList.remove("d-none");
+        maleIcon.classList.remove("d-none");
+    }
 
     versionsObj.sword = description[identifiedInfoSword]["flavor_text"];
     versionsObj.shield = description[identifiedInfoShield]["flavor_text"];
