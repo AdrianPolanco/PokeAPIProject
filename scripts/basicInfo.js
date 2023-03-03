@@ -50,16 +50,9 @@ function successBasicInfo(name, number, description = [], obj) {
         return info.language.name === "en";
     });
 
-    const identifiedInfoShield = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "pearl";
-    });
-    const identifiedInfoSword = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "diamond";
-    });
     const categoryShown = obj["genera"][identifiedType].genus.slice(0, -8);
     categoryData.textContent = categoryShown;
-    descriptionText.textContent =
-        description[identifiedInfoSword]["flavor_text"];
+
     if (obj["gender_rate"] === -1) {
         unknown.classList.remove("d-none");
     } else if (obj["gender_rate"] === 0) {
@@ -71,6 +64,15 @@ function successBasicInfo(name, number, description = [], obj) {
         maleIcon.classList.remove("d-none");
     }
 
+    const identifiedInfoShield = description.findIndex((info) => {
+        return info.language.name === "en" && info.version.name === "pearl";
+    });
+    const identifiedInfoSword = description.findIndex((info) => {
+        return info.language.name === "en" && info.version.name === "diamond";
+    });
+
+    descriptionText.textContent =
+        description[identifiedInfoSword]["flavor_text"];
     versionsObj.sword = description[identifiedInfoSword]["flavor_text"];
     versionsObj.shield = description[identifiedInfoShield]["flavor_text"];
 }

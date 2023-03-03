@@ -41,7 +41,7 @@ function crearDivs(datos = []) {
         const nameShown = container.name.toUpperCase();
 
         div.onclick = function (e) {
-            basicInfo(nameShown, numberShown);
+            basicInfo(nameShown, numberShown, number);
         };
 
         div.textContent = `${numberShown}  ${container.name.toUpperCase()}`;

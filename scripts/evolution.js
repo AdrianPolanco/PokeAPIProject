@@ -18,21 +18,32 @@ function showEvolution(obj) {
     clearHTML(evolutionsContainer);
     const { chain } = obj;
     const firstUrl = chain["species"]["url"];
-    const secondUrl = chain["evolves_to"][0].species.url;
-    const thirdUrl = chain["evolves_to"][0]["evolves_to"][0].species.url;
+    let secondUrl = 0;
+    let thirdUrl = 0;
+
+    if (chain["evolves_to"].length !== 0) {
+        secondUrl = chain["evolves_to"][0].species.url;
+        thirdUrl = chain["evolves_to"][0]["evolves_to"][0].species.url;
+    }
+
     const urlArray = [firstUrl, secondUrl, thirdUrl];
+
     for (let i = 0; i < urlArray.length; i++) {
-        setTimeout(() => {
+        if (urlArray[i] !== 0) {
             fetch(urlArray[i])
                 .then((response) => response.json())
-                .then((data) => buildCard(data));
-        }, 1000);
+                .then((data) =>
+                    setTimeout(() => {
+                        buildCard(data);
+                    }, 1000)
+                );
+        }
     }
 }
 
 function buildCard(obj) {
     let numberShown;
-    const url = `https://pokeapi.co/api/v2/pokemon/${obj.name}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${obj.id}`;
     const card = document.createElement("DIV");
     card.classList.add(
         "container",

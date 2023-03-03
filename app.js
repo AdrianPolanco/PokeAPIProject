@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 //Changes the descriptions depending on the pokeball icon you clicked
 versionSword.addEventListener("click", (e) => {
+    console.log(versionsObj);
     descriptionText.textContent = versionsObj.sword;
 });
 
