@@ -5,6 +5,7 @@ import {
     versionsObj,
     descriptionText,
 } from "./scripts/basicInfo.js";
+import { searchInfo } from "./scripts/search.js";
 
 /*Relevant links:
 
@@ -20,6 +21,7 @@ const versionsDiv = document.querySelector("#versions-div");
 const versionSword = document.querySelector("#version-1");
 const versionShield = document.querySelector("#version-2");
 const exit = document.querySelector("#exit");
+const buttonSearch = document.querySelector("#searchButton");
 
 document.addEventListener("DOMContentLoaded", function (e) {
     cargarScroll();
@@ -36,6 +38,11 @@ versionSword.addEventListener("click", (e) => {
 
 versionShield.addEventListener("click", (e) => {
     descriptionText.textContent = versionsObj.shield;
+});
+
+buttonSearch.addEventListener("click", function (e) {
+    e.preventDefault();
+    searchInfo();
 });
 
 exit.addEventListener("click", function (e) {
