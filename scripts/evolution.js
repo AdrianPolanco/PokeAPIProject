@@ -23,7 +23,10 @@ function showEvolution(obj) {
 
     if (chain["evolves_to"].length !== 0) {
         secondUrl = chain["evolves_to"][0].species.url;
-        thirdUrl = chain["evolves_to"][0]["evolves_to"][0].species.url;
+
+        if (chain["evolves_to"][0]["evolves_to"].length !== 0) {
+            thirdUrl = chain["evolves_to"][0]["evolves_to"][0].species.url;
+        }
     }
 
     const urlArray = [firstUrl, secondUrl, thirdUrl];
@@ -32,16 +35,12 @@ function showEvolution(obj) {
         if (urlArray[i] !== 0) {
             fetch(urlArray[i])
                 .then((response) => response.json())
-                .then((data) =>
-                    setTimeout(() => {
-                        buildCard(data);
-                    }, 1000)
-                );
+                .then((data) => buildCard(data, i));
         }
     }
 }
 
-function buildCard(obj) {
+function buildCard(obj, order) {
     let numberShown;
     const url = `https://pokeapi.co/api/v2/pokemon/${obj.id}`;
     const card = document.createElement("DIV");
@@ -52,7 +51,8 @@ function buildCard(obj) {
         "rounded-4",
         "p-3",
         "row",
-        "gap-5"
+        "gap-5",
+        `order-${order}`
     );
 
     const secondaryDiv = document.createElement("DIV");
