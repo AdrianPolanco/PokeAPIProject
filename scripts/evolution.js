@@ -15,11 +15,19 @@ export function requestEvolutionChain(url) {
 }
 
 function showEvolution(obj) {
+    clearHTML(evolutionsContainer);
     const { chain } = obj;
-
-    fetch(chain["species"]["url"])
-        .then((response) => response.json())
-        .then((data) => buildCard(data));
+    const firstUrl = chain["species"]["url"];
+    const secondUrl = chain["evolves_to"][0].species.url;
+    const thirdUrl = chain["evolves_to"][0]["evolves_to"][0].species.url;
+    const urlArray = [firstUrl, secondUrl, thirdUrl];
+    for (let i = 0; i < urlArray.length; i++) {
+        setTimeout(() => {
+            fetch(urlArray[i])
+                .then((response) => response.json())
+                .then((data) => buildCard(data));
+        }, 1000);
+    }
 }
 
 function buildCard(obj) {
@@ -82,7 +90,6 @@ function buildCard(obj) {
             card.appendChild(typesDiv);
         });
 
-    clearHTML(evolutionsContainer);
     evolutionsContainer.appendChild(card);
 }
 
