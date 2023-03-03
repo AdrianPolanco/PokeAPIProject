@@ -1,6 +1,7 @@
 import { clearHTML } from "./general.js";
 import { showStats } from "./detailedInfo.js";
 import { showTypes, getWeaknesses } from "./types.js";
+import { requestEvolutionChain } from "./evolution.js";
 
 const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
@@ -36,6 +37,7 @@ export function basicInfo(name, number) {
         .then((answer) => answer.json())
         .then((data) => {
             successBasicInfo(name, number, data["flavor_text_entries"], data);
+            requestEvolutionChain(data["evolution_chain"].url);
         });
 }
 
