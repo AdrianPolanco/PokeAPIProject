@@ -26,7 +26,7 @@ function crearDivs(datos = []) {
 
         //Finding the array index, which is the same than the order number of each
         //pokemon in the pokedex, so we be able to show the name and the number of the pokemon
-        const number = datos.findIndex((id) => id.name === container.name) + 1;
+        let number = datos.findIndex((id) => id.name === container.name) + 1;
 
         let numberShown;
 
@@ -38,10 +38,10 @@ function crearDivs(datos = []) {
             numberShown = `#0${number}`;
         }
 
-        const nameShown = container.name.toUpperCase();
+        let nameShown = container.name.toUpperCase();
 
         div.onclick = function (e) {
-            basicInfo(nameShown, numberShown, number);
+            basicInfo(nameShown, numberShown);
         };
 
         div.textContent = `${numberShown}  ${container.name.toUpperCase()}`;

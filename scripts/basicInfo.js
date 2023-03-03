@@ -22,7 +22,10 @@ export let versionsObj = {
 };
 
 export function basicInfo(name, number) {
-    const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${name.toLowerCase()}/`;
+    if (name == "SHAYMIN-LAND") {
+        name = "shaymin-land";
+    }
+
     const urlDetails = `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`;
 
     fetch(urlDetails)
@@ -30,15 +33,29 @@ export function basicInfo(name, number) {
         .then((data) => {
             showDetails(data);
             showStats(data.stats);
+            changeName(name);
         });
+
+    function changeName(pokemonName) {
+        if (pokemonName == "shaymin-land") {
+            pokemonName = "shaymin";
+        }
+        const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}/`;
+        fetch(urlSpecies)
+            .then((answer) => answer.json())
+            .then((data) => {
+                successBasicInfo(
+                    name,
+                    number,
+                    data["flavor_text_entries"],
+                    data
+                );
+                requestEvolutionChain(data["evolution_chain"].url);
+            });
+    }
+
     /*NOTA: Para el buscar, creare una función que a través del nombre haga una fetch al link del pokemon
  y obtenga el ID, para que pueda volver a reutilizar esta función*/
-    fetch(urlSpecies)
-        .then((answer) => answer.json())
-        .then((data) => {
-            successBasicInfo(name, number, data["flavor_text_entries"], data);
-            requestEvolutionChain(data["evolution_chain"].url);
-        });
 }
 
 function successBasicInfo(name, number, description = [], obj) {
