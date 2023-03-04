@@ -1,6 +1,7 @@
 import { clearHTML } from "./general.js";
 import { showStats } from "./detailedInfo.js";
 import { showTypes, getWeaknesses } from "./types.js";
+import { requestEvolutionChain } from "./evolution.js";
 
 const nameInfo = document.querySelector("#name");
 const numberInfo = document.querySelector("#pokedex-number");
@@ -21,7 +22,14 @@ export let versionsObj = {
 };
 
 export function basicInfo(name, number) {
-    const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${name.toLowerCase()}/`;
+    if (name == "SHAYMIN-LAND") {
+        name = "shaymin-land";
+    }
+
+    if (name == "GIRATINA-ALTERED") {
+        name = "giratina-altered";
+    }
+
     const urlDetails = `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`;
 
     fetch(urlDetails)
@@ -29,13 +37,32 @@ export function basicInfo(name, number) {
         .then((data) => {
             showDetails(data);
             showStats(data.stats);
+            changeName(name, number);
         });
+
     /*NOTA: Para el buscar, creare una función que a través del nombre haga una fetch al link del pokemon
  y obtenga el ID, para que pueda volver a reutilizar esta función*/
+}
+
+export function changeName(pokemonName, numberPokemon) {
+    if (pokemonName == "shaymin-land") {
+        pokemonName = "shaymin";
+    }
+
+    if (pokemonName == "giratina-altered") {
+        pokemonName = "giratina";
+    }
+    const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}/`;
     fetch(urlSpecies)
         .then((answer) => answer.json())
         .then((data) => {
-            successBasicInfo(name, number, data["flavor_text_entries"], data);
+            successBasicInfo(
+                pokemonName,
+                numberPokemon,
+                data["flavor_text_entries"],
+                data
+            );
+            requestEvolutionChain(data["evolution_chain"].url);
         });
 }
 
@@ -48,16 +75,9 @@ function successBasicInfo(name, number, description = [], obj) {
         return info.language.name === "en";
     });
 
-    const identifiedInfoShield = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "pearl";
-    });
-    const identifiedInfoSword = description.findIndex((info) => {
-        return info.language.name === "en" && info.version.name === "diamond";
-    });
     const categoryShown = obj["genera"][identifiedType].genus.slice(0, -8);
     categoryData.textContent = categoryShown;
-    descriptionText.textContent =
-        description[identifiedInfoSword]["flavor_text"];
+
     if (obj["gender_rate"] === -1) {
         unknown.classList.remove("d-none");
     } else if (obj["gender_rate"] === 0) {
@@ -69,6 +89,15 @@ function successBasicInfo(name, number, description = [], obj) {
         maleIcon.classList.remove("d-none");
     }
 
+    const identifiedInfoShield = description.findIndex((info) => {
+        return info.language.name === "en" && info.version.name === "pearl";
+    });
+    const identifiedInfoSword = description.findIndex((info) => {
+        return info.language.name === "en" && info.version.name === "diamond";
+    });
+
+    descriptionText.textContent =
+        description[identifiedInfoSword]["flavor_text"];
     versionsObj.sword = description[identifiedInfoSword]["flavor_text"];
     versionsObj.shield = description[identifiedInfoShield]["flavor_text"];
 }

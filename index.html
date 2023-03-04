@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <header class="header d-none" id="startHeader">
+        <header class="header" id="startHeader">
             <div class="w-auto h-100" id="top">
                 <img
                     src="./images/pokeball-top.webp"
@@ -37,7 +37,7 @@
                 />
             </div>
         </header>
-        <main id="pokedex" class="row gap-3 position-absolute top-0 z-5">
+        <main id="pokedex" class="row gap-3 position-absolute top-0 d-none">
             <section id="nav-header">
                 <nav class="navbar navbar-expand-lg bg-danger">
                     <div class="container-fluid">
@@ -103,10 +103,12 @@
                                     type="search"
                                     placeholder="Search"
                                     aria-label="Search"
+                                    id="search"
                                 />
                                 <button
                                     class="btn btn-outline-light text-light border-light fs-3"
                                     type="submit"
+                                    id="searchButton"
                                 >
                                     Search
                                 </button>
@@ -162,7 +164,7 @@
                             >
                                 <path
                                     d="M21.9012 13H16.8506C16.3873 15.2822 14.3696 17 11.9506 17C9.53167 17 7.51391 15.2822 7.05064 13H2C2.50172 18.0533 6.76528 22 11.9506 22C17.136 22 21.3995 18.0533 21.9012 13Z"
-                                    fill="#0dcaf0"
+                                    fill="#0dcaf0" id="version-1-first"
                                 />
                                 <path
                                     d="M21.9012 11C21.3995 5.94668 17.136 2 11.9506 2C6.76528 2 2.50172 5.94668 2 11H7.05064C7.51391 8.71776 9.53167 7 11.9506 7C14.3696 7 16.3873 8.71776 16.8506 11H21.9012Z"
@@ -236,13 +238,13 @@
                                 <div class="col-6">
                                     <p class="fs-3 fw-bolder">Gender</p>
                                     <div id="genders-div" class="row align-content-center">
-                                        <svg id="male-icon" class="col-auto" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#6390F0" d="M399.5 849.5a225 225 0 1 0 0-450 225 225 0 0 0 0 450zm0 56.25a281.25 281.25 0 1 1 0-562.5 281.25 281.25 0 0 1 0 562.5zm253.125-787.5h225q28.125 0 28.125 28.125T877.625 174.5h-225q-28.125 0-28.125-28.125t28.125-28.125z"/><path fill="#6390F0" d="M877.625 118.25q28.125 0 28.125 28.125v225q0 28.125-28.125 28.125T849.5 371.375v-225q0-28.125 28.125-28.125z"/><path fill="#6390F0" d="M604.813 458.9 565.1 419.131l292.613-292.668 39.825 39.824z"/></svg>
+                                        <svg id="male-icon" class="col-auto" width="30px" height="30px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#F8F9FA" d="M399.5 849.5a225 225 0 1 0 0-450 225 225 0 0 0 0 450zm0 56.25a281.25 281.25 0 1 1 0-562.5 281.25 281.25 0 0 1 0 562.5zm253.125-787.5h225q28.125 0 28.125 28.125T877.625 174.5h-225q-28.125 0-28.125-28.125t28.125-28.125z"/><path fill="#F8F9FA" d="M877.625 118.25q28.125 0 28.125 28.125v225q0 28.125-28.125 28.125T849.5 371.375v-225q0-28.125 28.125-28.125z"/><path fill="#F8F9FA" d="M604.813 458.9 565.1 419.131l292.613-292.668 39.825 39.824z"/></svg>
                                         <svg id="female-icon" class="col-auto" width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 18H15M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="#ff69b4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9 18H15M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="#F8F9FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                         <p class= "col-auto fs-3 fw-normal" id="unknown">Unknown</p>
                                     </div>
-                               </div>
+                              
                             </div>
                            
                         </article>
@@ -383,30 +385,10 @@
                         <div id="scroll-list" class="row gap-3"></div>
                     </div>
                 </section>
-                <section id="evolutions" class="row col-8 gap-3 p-5">
+                <section id="evolutions" class="row col-8 gap-3 p-5 row">
                     <h2 class="text-light text-center fs-1">Evolutions</h2>
-                    <div class="container row gap-5 justify-content-center">
-                        <div
-                            class="container col-3 bg-dark-subtle rounded-4 p-3 row gap-5"
-                        >
-                            <img
-                                src="./images/pikachu.webp"
-                                alt=""
-                                class="rounded-circle bg-light img-fluid"
-                            />
-                            <div
-                                class="row container text-dark fs-4 fw-bolder text-center"
-                            >
-                                <p id="name-evolution">Pikachu</p>
-                                <p id="number-evolution">#777</p>
-                                <div
-                                    class="bg-warning text-light col-auto rounded-3 fs-4 fw-bold text-center m-auto"
-                                >
-                                    Electric
-                                </div>
-                            </div>
-                        </div>
-                       
+                    <div class="container row gap-5 justify-content-center d-flex" id="evolutions-container">
+</div>
                 </section>
             </section>
       
