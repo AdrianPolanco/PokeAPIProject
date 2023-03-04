@@ -26,6 +26,10 @@ export function basicInfo(name, number) {
         name = "shaymin-land";
     }
 
+    if (name == "GIRATINA-ALTERED") {
+        name = "giratina-altered";
+    }
+
     const urlDetails = `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`;
 
     fetch(urlDetails)
@@ -43,6 +47,10 @@ export function basicInfo(name, number) {
 export function changeName(pokemonName, numberPokemon) {
     if (pokemonName == "shaymin-land") {
         pokemonName = "shaymin";
+    }
+
+    if (pokemonName == "giratina-altered") {
+        pokemonName = "giratina";
     }
     const urlSpecies = `https://pokeapi.co/api/v2/pokemon-species/${pokemonName.toLowerCase()}/`;
     fetch(urlSpecies)
