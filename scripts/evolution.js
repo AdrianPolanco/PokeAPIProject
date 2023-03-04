@@ -1,5 +1,5 @@
-import { showTypes } from "./types";
-import { clearHTML } from "./general";
+import { showTypes } from "./types.js";
+import { clearHTML } from "./general.js";
 const evolutionsContainer = document.querySelector("#evolutions-container");
 
 /*
