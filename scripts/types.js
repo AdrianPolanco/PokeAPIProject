@@ -1,4 +1,4 @@
-import { clearHTML } from "./general";
+import { clearHTML } from "./general.js";
 
 const colours = {
     normal: "#A8A77A",

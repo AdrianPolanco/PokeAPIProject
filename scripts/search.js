@@ -1,5 +1,5 @@
-import { showDetails, changeName } from "./basicInfo";
-import { showStats } from "./detailedInfo";
+import { showDetails, changeName } from "./basicInfo.js";
+import { showStats } from "./detailedInfo.js";
 
 const inputSearch = document.querySelector("#search");
 
