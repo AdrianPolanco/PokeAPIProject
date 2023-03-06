@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <header class="header" id="startHeader">
+        <header class="header d-none" id="startHeader">
             <div class="w-auto h-100" id="top">
                 <img
                     src="./images/pokeball-top.webp"
@@ -37,7 +37,7 @@
                 />
             </div>
         </header>
-        <main id="pokedex" class="row gap-3 position-absolute top-0 d-none">
+        <main id="pokedex" class="row gap-3 position-absolute top-0">
             <section id="nav-header">
                 <nav class="navbar navbar-expand-lg bg-danger">
                     <div class="container-fluid">
@@ -430,6 +430,8 @@
             integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
             crossorigin="anonymous"
         ></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <script src="app.js" type="module"></script>
       
     </body>
