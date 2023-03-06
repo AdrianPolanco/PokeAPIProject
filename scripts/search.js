@@ -29,5 +29,13 @@ export function searchInfo() {
                 numberShown = `#0${data.id}`;
             }
             changeName(finalInfo, numberShown);
+        })
+        .catch((error) => {
+            Swal.fire({
+                title: "¡Error!",
+                text: "The pokemon you are looking for does not exist or is after the fourth generation",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         });
 }
