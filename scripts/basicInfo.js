@@ -28,7 +28,7 @@ export function basicInfo(name, number) {
 
     if (name == "GIRATINA-ALTERED") {
         name = "giratina-altered";
-    }nt
+    }
 
     const urlDetails = `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`;
 
