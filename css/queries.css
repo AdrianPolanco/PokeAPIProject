@@ -1,5 +1,21 @@
+html {
+    font-size: 62.5%;
+}
+
 @media (min-width: 992px) {
     #navbar-options {
         margin-left: 60% !important;
+    }
+}
+
+@media (max-width: 450px) {
+    #evolution-0 div,
+    #evolution-1 div,
+    #evolution-2 div {
+        font-size: 1.5rem !important;
+    }
+
+    #pokedex-scroll {
+        height: 20rem;
     }
 }
