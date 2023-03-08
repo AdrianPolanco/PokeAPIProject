@@ -52,7 +52,8 @@ function buildCard(obj, order) {
         "p-3",
         "row",
         "gap-1",
-        `order-${order}`
+        `order-${order}`,
+        "m-auto"
     );
 
     card.id = `evolution-${order}`;
