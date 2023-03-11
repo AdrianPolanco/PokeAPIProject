@@ -119,24 +119,23 @@
             </section>
             <section
                 id="main-body"
-                class="container row-cols-1 d-flex flex-column gap-5 justify-content-center"
+                class="container row gap-5 justify-content-center"
             >
-                <section id="information" class=" row-cols-1 order-1 col gap-5 rounded-5">
-                    <div class="row col rounded-5 m-auto">
-                        <div><img
+                <section id="information" class="row col-8 gap-5">
+                    <div class="row col-6 p-5">
+                        <img
                             src="./images/pikachu.webp"
-                            alt="mainImage"
-                            class="img-fluid d-block bg-light rounded-5 border border-danger m-auto"
+                            alt=""
+                            class="img-fluid d-block bg-light rounded-5"
                             id="mainImage"
-                        /></div>
-                        
+                        />
                     </div>
 
-                    <article class="col row gy-5 p-5 mt-5" id="general-info">
-                        <div class="row col gap-5 align-items-center m-auto container-sm">
-                            <p class="col" id="name">Name</p>
+                    <article class="col row gy-5" id="general-info">
+                        <div class="row col align-items-center">
+                            <p class="col-6" id="name">Name</p>
                             <p
-                                class="col row align-items-center"
+                                class="col-3 row align-items-center"
                                 id="pokedex-number"
                             >
                                 #4543
@@ -152,7 +151,7 @@
                                 perferendis quisquam?
                             </p>
                         </div>
-                        <div class="versions row mt-5 gap-sm-5" id="versions-div">
+                        <div class="versions row" id="versions-div">
                             <p class="fs-3 col-4 h3">Versions:</p>
                             <svg
                                 width="40px"
@@ -250,7 +249,7 @@
                            
                         </article>
                     </article>
-                    <article class="col p-5 d-flex flex-column align-items-center justify-content-center gap-sm-3" id="specific-info">
+                    <article class="col-6 p-5" id="specific-info">
                         <p  class="h4 fs-2">Type</p>
                         <div class="col row text-light gap-1" id="types">
                             <p class="col-auto bg-info fs-3 fw-bolder rounded-3 p-1">
@@ -274,7 +273,7 @@
                             </p>
                         </div>
                     </article>
-                    <article id="statsBar" class="col p-5 bg-light mt-3">
+                    <article id="statsBar" class="col-5 p-5 bg-light mt-3">
                         <h2>Stats</h2>
                         <div class="d-flex justify-content-between">
                             <p class="h6 f-5">HP</p>
@@ -374,7 +373,7 @@
                         </div>
                     </article>
                 </section>
-                <section class="accordion accordion-flush row-cols-1 col rounded-5 p-5" id="accordionFlushExample">
+                 <section class="accordion accordion-flush row-cols-1 col  rounded-5 p-5" id="accordionFlushExample">
                     <div class="accordion-item ">
                         <h2 class="accordion-header bg-danger " id="flush-headingOne">
                         <button class="accordion-button collapsed poke-font fs-1 fw-bold text-danger bg-light-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -392,14 +391,14 @@
                         </div> 
                     </div>
                 </section>
-                
-                <section id="evolutions" class="row col order-2 gap-3 p-5 row rounded-5 m-auto">
+                <section id="evolutions" class="row col-8 gap-3 p-5 row">
                     <h2 class="text-light text-center fs-1">Evolutions</h2>
-                    <div class="container gap-5 justify-content-center d-flex flex-column" id="evolutions-container"></div>
+                    <div class="container row gap-5 justify-content-center d-flex" id="evolutions-container">
+</div>
                 </section>
-</section>
+            </section>
       
-        <footer class="bg-danger text-light mt-5 fs-2 position-relative p-sm-5">
+        <footer class="bg-danger text-light mt-5 fs-2 position-relative">
             <p class="text-uppercase">DISCLAIMER:</p>
             <p>
                 This Pokedex App was built by Adrian Saul Polanco Ferrer using
