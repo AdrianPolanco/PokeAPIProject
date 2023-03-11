@@ -1,48 +1,5 @@
-html {
-    font-size: 62.5%;
-}
-
 @media (min-width: 992px) {
     #navbar-options {
         margin-left: 60% !important;
-    }
-}
-
-@media (max-width: 450px) {
-    #evolution-0 div,
-    #evolution-1 div,
-    #evolution-2 div {
-        font-size: 1.5rem !important;
-    }
-
-    #pokedex-scroll {
-        height: 20rem;
-    }
-}
-
-@media (min-width: 576px) {
-    #description-text {
-        font-size: 1.7rem !important;
-    }
-
-    .fs-3.col-4.h3 {
-        font-size: 1.7rem !important;
-    }
-
-    #version-1,
-    #version-2 {
-        width: 5rem;
-    }
-
-    #statsBar p {
-        font-size: 1.7rem !important;
-    }
-
-    #evolutions p {
-        font-size: 1.7rem !important;
-    }
-
-    #evolutions h2 {
-        font-size: 2.5rem !important;
     }
 }

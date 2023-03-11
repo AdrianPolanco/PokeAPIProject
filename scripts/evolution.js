@@ -46,23 +46,20 @@ function buildCard(obj, order) {
     const card = document.createElement("DIV");
     card.classList.add(
         "container",
-        "col",
-        "bg-light-subtle",
+        "col-3",
+        "bg-dark-subtle",
         "rounded-4",
         "p-3",
         "row",
-        "gap-1",
-        `order-${order}`,
-        "m-auto"
+        "gap-5",
+        `order-${order}`
     );
-
-    card.id = `evolution-${order}`;
 
     const secondaryDiv = document.createElement("DIV");
     secondaryDiv.classList.add(
         "row",
         "container",
-        "text-danger",
+        "text-light",
         "fs-4",
         "fw-bolder",
         "text-center"
@@ -110,13 +107,7 @@ function buildCard(obj, order) {
 function buildImage(pokemon, parent, secondDiv) {
     const img = document.createElement("IMG");
     img.src = pokemon.sprites.other["official-artwork"]["front_default"];
-    img.classList.add(
-        "rounded-5",
-        "bg-light",
-        "img-fluid",
-        "border-danger",
-        "border"
-    );
+    img.classList.add("rounded-circle", "bg-light", "img-fluid");
 
     parent.appendChild(img);
 

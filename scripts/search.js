@@ -10,7 +10,7 @@ export function searchInfo() {
         info = "shaymin-land";
     }
 
-    const finalInfo = info.trim().toUpperCase();
+    const finalInfo = info.trim();
 
     const url = `https://pokeapi.co/api/v2/pokemon/${finalInfo.toLowerCase()}`;
 
