@@ -3,3 +3,14 @@
         margin-left: 60% !important;
     }
 }
+@media (max-width: 850px) {
+    #accordionFlushExample {
+        order: 0 !important;
+    }
+    #information {
+        order: 1 !important;
+    }
+    #evolutions {
+        order: 2 !important;
+    }
+}
