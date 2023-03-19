@@ -46,12 +46,14 @@ function buildCard(obj, order) {
     const card = document.createElement("DIV");
     card.classList.add(
         "container",
-        "col-3",
+        "col-auto",
+        "col-md-3",
         "bg-dark-subtle",
         "rounded-4",
         "p-3",
         "row",
-        "gap-5",
+        "gap-1",
+        "gap-md-5",
         `order-${order}`
     );
 

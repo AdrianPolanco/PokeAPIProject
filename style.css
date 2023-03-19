@@ -123,6 +123,26 @@ body {
     cursor: pointer;
 }
 
+@media (min-width: 576px) {
+    #version-1,
+    #version-2 {
+        width: 50px;
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    #main-body {
+        display: flex;
+    }
+    #information {
+        order: 1;
+    }
+    #accordionFlushExample {
+        order: 2 !important;
+    }
+}
+
 #name {
     text-transform: uppercase;
 }

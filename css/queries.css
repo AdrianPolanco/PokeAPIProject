@@ -3,7 +3,7 @@
         margin-left: 60% !important;
     }
 }
-@media (max-width: 850px) {
+@media (max-width: 1600px) {
     #accordionFlushExample {
         order: 0 !important;
     }
@@ -11,6 +11,26 @@
         order: 1 !important;
     }
     #evolutions {
+        order: 2 !important;
+    }
+}
+
+@media (min-width: 576px) {
+    #version-1,
+    #version-2 {
+        width: 50px;
+        border-radius: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    #main-body {
+        display: flex;
+    }
+    #information {
+        order: 1;
+    }
+    #accordionFlushExample {
         order: 2 !important;
     }
 }
